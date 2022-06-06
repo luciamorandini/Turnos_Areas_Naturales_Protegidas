@@ -1,0 +1,345 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="Solicitud Turno - Selección ANP">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Solicitud Turno - Selección ANP</title>
+    
+    <!-- ARCHIVOS CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="../style.css">
+
+  </head>
+
+  <body>
+    <div class="main-container">
+      <div class="header-container">
+        <div class="col-xs-12">
+          <div class="header  container-fluid">
+            <div class="row ">
+              <div class="col-xs-12">
+                <table class="gx-tab-spacing-fix-2">
+                  <tbody>
+                    <tr>
+                      <td class="gx-tab-padding-fix-1 ">
+                        <img src="../Imagenes/LogoMza.png" id="IMAGE1_MPAGE" alt="" class="Image">
+                      </td>
+                      <td class="gx-tab-padding-fix-1">
+                        <div class="Table">
+                          <div class="row">
+                            <div class="col-xs-12" data-valign="middle">                          
+                              <span class="title-header">DRNR | Turnos para Areas Naturales Protegidas</span>
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>        
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="d-flex align-items-center">
+            <div class="flex-grow-1 main-section">
+              <div class="row">
+                <div class="col-xs-12">
+                  <div class="info-section">
+                    <div class="row">
+                      <div class="col-xs-12">
+                        <p class="subtitle">PARQUE PROVINCIAL ACONCAGUA</p>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-12">
+                        <table class="gx-tab-spacing-fix-2">
+                          <tbody>
+                            <tr>
+                              <td class="gx-tab-padding-fix-1 align-top">
+                                <img src="../Imagenes/LightbulbImage.png" id="IMAGE1" alt="" class="Image">
+                              </td>
+                              <td class="gx-tab-padding-fix-1 ">                          
+                                <span class="info-text">
+                                  Seleccione la actividad de su interés, ingrese la cantidad de personas que asistirán y presione "Ver disponibilidad" para conocer en qué días y horarios podrá concurrir. 
+                                  <br>
+                                  Para escoger, seleccione el año, mes y día para ver qué horarios y el cupo disponible: seleccione uno y presione "Reservar".
+                                </span>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-xs-12 col-lg-3">
+                  <div class=" aside-container aside">
+                    <div class="row">
+                      <div class="form-group d-flex flex-column"> 
+                        <div class="col-xs-12 pt-2 pb-2 d-flex justify-content-evenly align-items-center">
+                          <label class="control-label" for="cant-personas"> Cantidad de Personas </label>
+                          <div class=" col-xs-4 col-md-3 col-lg-2">
+                            <input type="number" id="cant-personas" name="cant-personas" value="" min="0" max="9999" step="1" class="form-blur form-control" required>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-12 d-flex justify-content-center">
+                        <input type="button" name="ver-disponibilidad" id="ver-disponibilidad" value="Ver Disponibilidad" title="Ver Disponibilidad" class=" btn_blue" onclick="consultar()">
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-12 pt-2 pb-2">
+                        <div id="tabla-disponibles" class="m-0 text-start" style="display: none;">
+                          <div class="row">
+                            <div class="col-xs-12 p-3">
+                              <p id="actividad-nombre">
+                                NOMBRE DE LA ACTIVIDAD
+                              </p>
+                            </div>                            
+                          </div>
+                          <div class="row">
+                            <div class="col-xs-12">
+                              <div class="m-0 text-start">
+                                <div class="row d-block mb-3">
+                                  <div class="col-xs-12 col-sm-11 offset-sm-1">
+                                    <div class="row align-items-center">
+                                      <label class="control-label col-sm-1 col-lg-3" for="vAnio">Año</label>
+                                      <div class="col-sm-9 col-lg-6">
+                                        <select id="vAnio" name="vAnio" class="form-control form-blur">
+                                          <option value="2022" selected="selected">2022</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row d-block mb-3">
+                                  <div class="col-xs-12 col-sm-11 offset-sm-1">
+                                    <div class="row align-items-center">
+                                      <label class="control-label col-sm-1 col-lg-3" for="vMes">Mes</label>
+                                      <div class="col-sm-9 col-lg-6">
+                                        <select id="vMes" name="vMes" class="form-control form-blur">
+                                          <option value="6" selected="selected">Junio</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row d-block mb-3">
+                                  <div class="col-xs-12 col-sm-11 offset-sm-1">
+                                    <div class="row align-items-center">
+                                      <label class="control-label col-sm-1 col-lg-3" for="vDia">Día</label>
+                                      <div class="col-sm-9">
+                                        <select id="vDia" name="vDia" class="form-control form-blur">
+                                          <option value="5" selected="selected">Domingo 5</option>
+                                          <option value="6">Lunes 6</option>
+                                          <option value="7">Martes 7</option>
+                                          <option value="8">Miércoles 8</option>
+                                          <option value="9">Jueves 9</option>
+                                          <option value="10">Viernes 10</option>
+                                          <option value="11">Sábado 11</option>
+                                          <option value="12">Domingo 12</option>
+                                          <option value="13">Lunes 13</option>
+                                          <option value="14">Martes 14</option>
+                                          <option value="15">Miércoles 15</option>
+                                          <option value="16">Jueves 16</option>
+                                          <option value="17">Viernes 17</option>
+                                          <option value="18">Sábado 18</option>
+                                          <option value="19">Domingo 19</option>
+                                          <option value="20">Lunes 20</option>
+                                          <option value="21">Martes 21</option>
+                                          <option value="22">Miércoles 22</option>
+                                          <option value="23">Jueves 23</option>
+                                          <option value="24">Viernes 24</option>
+                                          <option value="25">Sábado 25</option>
+                                          <option value="26">Domingo 26</option>
+                                          <option value="27">Lunes 27</option>
+                                          <option value="28">Martes 28</option>
+                                          <option value="29">Miércoles 29</option>
+                                          <option value="30">Jueves 30</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-xs-12 pt-2 pb-2">
+                              <div class="row justify-content-center align-items-center">
+                                <label class="control-label col-sm-12 text-center" for="vCantidadNoches">Cantidad de Noches</label> <!--col-sm-4 col-lg-7 col-xxl-12-->
+                                <div class="col-sm-2 col-lg-5 col-xl-4 col-xxl-3"><!--col-sm-3 col-lg-5 col-xxl-4-->
+                                  <select id="vCantidadNoches" name="vCantidadNoches" class="form-control form-blur">
+                                    <option value="0" selected="selected">-</option>
+                                    <option value="1" selected="selected">1</option>
+                                    <option value="2" selected="selected">2</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="row justify-content-center">
+                            <div class="col-xs-12 ">
+                              <table id="horarios-tbl" class=" table table-responsive rounded-4 table-light text-center">
+                                <thead class="table-info text-center">
+                                  <tr>
+                                    <th>INICIO</th>
+                                    <th>FIN</th>
+                                    <th>DISPONIBLE</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr id="horario-row-0001 row-selected" class="p-1">                                    
+                                    <td>
+                                      <span id="vHoraInicio-0001">
+                                        14:00
+                                      </span>
+                                    </td>
+                                    <td>
+                                      <span id="vHoraFin-0001">
+                                        14:15
+                                      </span>
+                                    </td>
+                                    <td> 
+                                      <span id="disponible-0001">
+                                        400
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  <tr id="horario-row-0001" class="p-1">                                    
+                                    <td>
+                                      <span id="vHoraInicio-0002">
+                                        14:00
+                                      </span>
+                                    </td>
+                                    <td>
+                                      <span id="vHoraFin-0002">
+                                        14:15
+                                      </span>
+                                    </td>
+                                    <td>
+                                      <span id="disponible-0002">
+                                        400
+                                      </span>
+                                    </td>
+                                  </tr>
+                                  <tr id="horario-row-0001" class="p-1">                                    
+                                    <td>
+                                      <span id="vHoraInicio-0003">
+                                        14:00
+                                      </span>
+                                    </td>
+                                    <td>
+                                      <span id="vHoraFin-0003">
+                                        14:15
+                                      </span>
+                                    </td>
+                                    <td>
+                                      <span id="disponible-0003">
+                                        400
+                                      </span>
+                                    </td>
+                                  </tr>                              
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                          <div class="row">
+                            <div class="col-xs-12 d-flex justify-content-center">
+                              <input type="button" name="ver-tarifas" id="ver-tarifas" value="Ver Tarifas" title="Ver Tarifas" class=" btn_blue">
+                            </div>
+                          </div>
+                          <div class="row"></div>
+                          <div class="row"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-xs-12 d-flex justify-content-center">
+                        <input type="button" name="CANCEL" id="CANCEL" value="Volver a Areas" title="Volver a la selección de Area Natural" class="btn btn-cancel">
+                      </div>
+                    </div>
+                  </div>                  
+                </div>
+
+                <div class="col-xs-12 col-lg-9">
+                  <div class="row">
+                    <div class="col-xs-12">
+                      <div class="table-input" id="input-0001">
+                        <div class="row">
+                          <div class="col-xs-12 col-md-5 col-lg-3 text-center">                            
+                            <img src="Imagenes/circuito-laguna.jpg" id="vIMAGENANP_0001" alt="" class="img-fluid rounded ">                            
+                          </div>
+                          <div class="col-xs-12 col-md-7 col-lg-9">
+                            <div class="row">
+                              <div class="col-xs-12">
+                                <p class="subtitle">CIRCUITO TURÍSTICO INTERPRETATIVO “LAGUNA DE LOS HORCONES”. QUEBRADA DE HORCONES</p>
+                              </div>
+                            </div>
+                            <div class="row">
+                              <div class="col-xs-12">
+                                <p class="table-info">
+                                  <span>
+                                    Habilitado todo el año, solo limitado por acumulación nívea o condiciones climáticas.
+                                    <br>
+                                    Trekking de dificultad BAJA/MEDIA, con exigencia física MEDIA por la altura sobre el nivel del mar.
+                                    <br>
+                                    Duración de la caminata: 1 a 4 hs. Según recorrido.  
+                                    <br>
+                                    Horario de ingreso solo de 10 a 16hs. 
+                                    <br>
+                                    Desnivel: 200 metros. Inicia en la cota 2.800msnm (Centro de Informes) hasta3.000 msnm.
+                                    <br>
+                                    No habilita para continuar más allá del Puente de la Quebrada del Durazno, ni a pernoctar en el Parque.
+                                  </span>
+                                </p>
+                              </div>
+                            </div>
+                            <div class="row">                              
+                              <div class="col-xs-12 d-flex justify-content-around justify-content-md-end">
+                                <div class="row">
+                                  <div class="col-xs-12 col-sm-6">
+                                    <input type="button" name="BTN_VERDETALLE_0001" id="BTN_VERDETALLE_0001" value="Ver Detalle" title="Ver Detalle" class="btn_blue">
+                                  </div>
+                                  <div class="col-xs-12 col-sm-6">
+                                    <input type="button" name="BTN_VERDISPONIBILIDAD_0001" id="BTN_VERDISPONIBILIDAD_0001" value="Ver Disponibilidad" title="Ver Disponibilidad" class="btn_blue">
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>                
+              </div>
+
+              <div class="row">
+                <div class="footer col-xs-12">
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div> 
+      </div>       
+    </div>
+
+
+    <!-- ARCHIVOS SCRIPT-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-kjU+l4N0Yf4ZOJErLsIcvOU2qSb74wXpOhqTvwVx3OElZRweTnQ6d31fXEoRD1Jy" crossorigin="anonymous"></script>
+    <script src="../script.js"></script>
+  </body>
+</html>
