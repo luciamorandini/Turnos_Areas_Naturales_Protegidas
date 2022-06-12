@@ -28,6 +28,20 @@ function consultar(){
 }
 
 
+var btn_reservar = document.getElementById('btn-reservar');
+var c_terminos = document.getElementById('cTERMINOS');
+
+c_terminos.addEventListener('click', function() {
+    if(c_terminos.checked) {
+        btn_reservar.style.display = 'block';
+    } else {
+        btn_reservar.style.display = 'none';
+    }
+});
+
+
+
+
 
 
 
